@@ -104,17 +104,11 @@ import { Routes, Route } from "react-router-dom";
     {/* Navbar goes here... */}
   </div>
   <div className="row">
-    <Routes>
-      <Route path="/" element={<h1>Home</h1>} />
-      <Route path="/mission" element={<h1>Mission</h1>} />
-      <Route path="/gallery" element={<h1>Gallery</h1>} />
-      <Route path="/contact" element={<h1>Contact</h1>} />
-    </Routes>
+    {/* Routes go here */}
   </div>
 </div>
 ```
-
-We have wrapped all other elements in the `<Routes>` element and inside we added `<Route>` elements.
+You can add routes for the following paths: the default path, `mission`, `gallery`, and `contact`.  Feel free to have them point to placeholder `h1` elements for now.  Use your browser to navigate to the different routes to confirm they work.
 
 ## Create Header Component
 
@@ -124,47 +118,11 @@ Most of these other components will display static data so we will create them a
 
 16. Open the **/src/Header.jsx** file and create the basic functional component scaffolding. Name the function `Header`.
 
-17. At the top of the file import the Link component.
+17.  In the Header component, add an element that will link back to the home page.  Be sure to use the `Link` component from  **react-router-dom**
 
-```javascript
-import { Link } from "react-router-dom";
-```
+19. Save this file and head back to **/src/App.jsx** to import it.
 
-18. Fill the empty `return ( )` with the following elements:
-
-```jsx
-<header className="col-md-6">
-  <h1>
-    <Link to="/">Space Mission</Link>
-  </h1>
-</header>
-```
-
-The finished Header code should look like this:
-
-```jsx
-import { Link } from "react-router-dom";
-
-function Header() {
-  return (
-    <header className="col-md-6">
-      <h1>
-        <Link to="/">Space Mission</Link>
-      </h1>
-    </header>
-  );
-}
-
-export default Header;
-```
-
-19. Save this file and head back to **/src/App.jsx** and after the React Router DOM import, include an import to the `Header` component.
-
-```javascript
-import Header from "./Header";
-```
-
-20. Then replace the comment `{/* Header will go here */}` with our static `<Header />` component.
+20. Then replace the comment `{/* Header will go here */}` with our static `Header` component.
 
 ## Create Navbar Component
 
@@ -172,47 +130,11 @@ import Header from "./Header";
 
 22. Open the **/src/Navbar.jsx** file and create the basic functional component scaffolding. Name the function `Navbar`.
 
-23. At the top of the file import the Link component.
+23. The `Navbar` component should consist of a navbar with links to the remaining Routes specified in App.jsx.
 
-```javascript
-import { Link } from "react-router-dom";
-```
+25. Save this file and head back to **/src/App.jsx** and import it.
 
-24. Fill the empty `return ( )` with the following elements:
-
-```jsx
-<nav className="col-md-6">
-  <Link to="/mission">Mission</Link>
-  <Link to="/gallery">Gallery</Link>
-  <Link to="/contact">Contact</Link>
-</nav>
-```
-
-The finished Navbar code should look like this:
-
-```jsx
-import { Link } from "react-router-dom";
-
-function Navbar() {
-  return (
-    <nav className="col-md-6">
-      <Link to="/mission">Mission</Link>
-      <Link to="/gallery">Gallery</Link>
-      <Link to="/contact">Contact</Link>
-    </nav>
-  );
-}
-
-export default Navbar;
-```
-
-25. Save this file and head back to **/src/App.jsx** and after the React Router DOM import, include an import to the `Navbar` component.
-
-```javascript
-import Navbar from "./Navbar";
-```
-
-26. Then replace the comment `{/* Navbar will go here */}` with our `<Navbar />` component.
+27. Then replace the comment `{/* Navbar will go here */}` with our `<Navbar />` component.
 
 ## Create Home Component
 
@@ -252,56 +174,7 @@ import Navbar from "./Navbar";
   </p>
 </div>
 ```
-
-The finished Home code should look like this:
-
-```jsx
-function Home() {
-  return (
-    <div className="col-12">
-      <h2>Welcome Astronauts</h2>
-      <img src="./mars.jpg" alt="Mars" className="img-fluid" />
-      <h3>About</h3>
-      <p>
-        You will use this site to brief yourself on upcoming space missions. For
-        more information visit the official{" "}
-        <a
-          href="https://mars.nasa.gov/mars2020/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Mars Perseverance Mission Site
-        </a>
-      </p>
-      <p>
-        We’ve been driving on Mars since 1997, beginning with the 83 sol
-        Sojourner rover mission. Since 2003 with the arrival of the Spirit and
-        Opportunity rovers, followed by the Curiosity rover in 2012 and
-        Perseverance rover in 2021 we have been continuously exploring the
-        surface of Mars. The Perseverance mobility system was designed to enable
-        faster and more precise autonomous driving than any prior mission. It
-        has wheels optimized for rugged terrain, cameras with fast exposure
-        times, wide navigation camera “Navcam” field of view, and a dedicated
-        second computer and Field Gate Programmable Array “FPGA” for fast image
-        processing. Visual Odometry, “VO”, tracks the motion of features in
-        images as it is driving to provide accurate position estimates and
-        measure slip. “Thinking-While-Driving” capability allows Perseverance to
-        continuously drive while performing VO, generating a map of terrain
-        geometry, and autonomously blending drive arcs and selecting a safe and
-        efficient drive path.
-      </p>
-    </div>
-  );
-}
-
-export default Home;
-```
-
-30. Save this file and head back to **/src/App.jsx** and after the React Router DOM import, include an import to the `Home` component.
-
-```javascript
-import Home from "./Home";
-```
+30. Save this file and head back to **/src/App.jsx** and import it
 
 31. Then add `element={<Home />}` to the `<Route path="/" />` component.
 
@@ -497,220 +370,12 @@ import Contact from "./Contact";
 
 41. Then add `element={<Contact />}` to the `<Route path="/contact" />` component.
 
-## Create Gallery Component
+## Gallery and Photo Component
 
 This will be a special component that will pull down images from the NASA API.
 
-42. From the File Explorer from the left side panel **right click** on the **/src/** folder and select **New File**. Name the file `Gallery.jsx`.
+Your Gallery component should make an API call to the following URL (API key included!) `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=Lc6mCmy8pmn55pfWyTeOUCytfdZvsJsUqRhtowWL`
 
-43. Open the **/src/Gallery.jsx** file and create the functional component scaffolding. Name the component `Gallery`.
-
-44. Import and use `useEffect` to make an API call when the component renders and `useState` to hold the photos we get back.
-
-```jsx
-import { useEffect, useState } from "react";
-```
-
-45. Fill the empty `return` statement with the following JSX elements:
-
-```jsx
-<div className="col-12">
-  <h2>Gallery</h2>
-  <p>
-    These are the last known images the Rover had taken before going offline.
-  </p>
-  <div className="row">{photos.length > 0 && "photos"}</div>
-</div>
-```
-
-Here we are checking the length of the photos array we hold in state. If it is has any elements in it, we will display some text that says "photos" as a placeholder until we create our Photo component.
-
-46. Next, let's create a `useEffect` hook to make an API call to the NASA API. We will also use the `useState` hook to hold the photos we get back from the API.
-
-```jsx
-useEffect(() => {
-  async function fetchPhotos() {
-    const response = await fetch(
-      "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=Lc6mCmy8pmn55pfWyTeOUCytfdZvsJsUqRhtowWL"
-    );
-
-    const data = await response.json();
-    setPhotos(data.photos);
-  }
-
-  fetchPhotos();
-}, []);
-```
-
-Here we are fetching from the free public NASA API, which will pull down recent images from the Mars rover. It will happen on only the first component render, because we are using an empty dependencies array in our `useEffect` call. After it gets the images, it will set the photos in state.
-
-The full Gallery code currently looks like this:
-
-```jsx
-import { useEffect, useState } from "react";
-
-function Gallery() {
-  const [photos, setPhotos] = useState([]);
-  useEffect(() => {
-    async function fetchPhotos() {
-      const response = await fetch(
-        "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=Lc6mCmy8pmn55pfWyTeOUCytfdZvsJsUqRhtowWL"
-      );
-
-      const data = await response.json();
-      setPhotos(data.photos);
-    }
-
-    fetchPhotos();
-  }, []);
-
-  return (
-    <div className="col-12">
-      <h2>Gallery</h2>
-      <p>
-        These are the last known images the Rover had taken before going
-        offline.
-      </p>
-      <div className="row">{photos.length > 0 && "photos"}</div>
-    </div>
-  );
-}
-
-export default Gallery;
-```
-
-47. Save this file and head back to **/src/App.jsx** and after the React Router DOM import, include an import to the `Gallery` component.
-
-```javascript
-import Gallery from "./Gallery";
-```
-
-48. Then add `element={<Gallery />}` to the `<Route path="/gallery" />` component.
-
-## Create Photo Component
-
-This will be a simple functional component to display an image for each photo inside our photos array within Gallery component.
-
-49. From the File Explorer from the left side panel **right click** on the **/src/** folder and select **New File**. Name the file `Photo.jsx`.
-
-50. Open the **/src/Photo.jsx** file and create the basic functional component scaffolding. Name the function `Photo`. Don't forget to export it.
-
-51. Pass the prop object into the function `function Photo(props) {`. This will make props accessible inside of our functional component.
-
-52. Replace the empty `return()` the following elements:
-
-```jsx
-<div className="col-sm-2">
-  <img src={props.data.img_src} alt="Mars" className="img-fluid" />
-  <small>{props.data.earth_date}</small>
-</div>
-```
-
-The finished Photo code should look like this:
-
-```jsx
-function Photo(props) {
-  return (
-    <div className="col-sm-2">
-      <img src={props.data.img_src} alt="Mars" className="img-fluid" />
-      <small>{props.data.earth_date}</small>
-    </div>
-  );
-}
-
-export default Photo;
-```
-
-53. Save this file and head back to **/src/Gallery.jsx** and after the React import, include an import to the `Photo` component.
-
-```javascript
-import Photo from "./Photo";
-```
-
-54. Then, remove the conditional check for `photos.length` and replace it with the following code:
-
-```jsx
-{photos.map((photo) => (
-  <Photo key={photo.id} data={photo} />
-```
-
-Here, we are using map to iterate over each photo in the photos array and display a `<Photo />` component for each.
-
-Here is the finished Gallery code.
-
-```jsx
-import { useEffect, useState } from "react";
-import Photo from "./Photo";
-
-function Gallery() {
-  const [photos, setPhotos] = useState([]);
-  useEffect(() => {
-    async function fetchPhotos() {
-      const response = await fetch(
-        "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=Lc6mCmy8pmn55pfWyTeOUCytfdZvsJsUqRhtowWL"
-      );
-
-      const data = await response.json();
-      setPhotos(data.photos);
-    }
-
-    fetchPhotos();
-  }, []);
-
-  return (
-    <div className="col-12">
-      <h2>Gallery</h2>
-      <p>
-        These are the last known images the Rover had taken before going
-        offline.
-      </p>
-      <div className="row">
-        {photos.map((photo) => (
-          <Photo key={photo.id} data={photo} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-export default Gallery;
-```
-
-## Completed App Code
-
-Here is the completed App code:
-
-```jsx
-import { Routes, Route } from "react-router-dom";
-
-import Header from "./Header";
-import "./App.css";
-import Navbar from "./Navbar";
-import Home from "./Home";
-import Mission from "./Mission";
-import Contact from "./Contact";
-import Gallery from "./Gallery";
-
-function App() {
-  return (
-    <div className="container">
-      <div className="row">
-        <Header />
-        <Navbar/>
-      </div>
-      <div className="row">
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/mission" element={<Mission/>} />
-          <Route path="/gallery" element={<Gallery/>} />
-          <Route path="/contact" element={<Contact/>} />
-        </Routes>
-      </div>
-    </div>
-  );
-}
-
-export default App;
-```
+After getting the photo data from the NASA API, display the image and the earth date (if there is no data, make sure to not display anything).  Observe the data you are receiving in order to figure out how to accomplish this.
 
 55. Save all files and check your work in the browser. Each link should display the corresponding component for that page. the Gallery page should display the images form the NASA API.
