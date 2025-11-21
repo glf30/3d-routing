@@ -6,19 +6,9 @@ Create a React application that utilizes React Router to navigate between differ
 
 ### Step 1: Set Up A New React Project
 
-- Open the terminal to the `exercise` directory--the simplest way to do so is to right-click on the `exercise` folder in VS Code and select "Open in Integrated Terminal".
+- Create a new React app with `npm create vite@latest`
 
-- In the terminal, type `npm create vite .` and hit enter/return. The `.` is important--this will create a new Vite project in the current directory.
-
-- It will warn you that there are files here currently. Use the arrow keys and Enter/Return to select "Ignore files and continue". This allows us to keep our readme and any data/assets files we have in our new project folder.
-
-- Choose React and then JavaScript from the following menus, using arrow keys and Enter/Return.
-
-- Install dependencies by entering `npm install` in the terminal.
-
-- Install React Router. In your terminal, type `npm i react-router-dom@6.29.0`. This will install the package into our project.
-
-- Handle a Vite/React-Router conflict by running `npm dedupe`. This will remove the conflicting package and allow React Router to work properly.
+- Install React Router. In your terminal, type `npm i react-router-dom`. This will install the package into our project.
 
 - Run the app by typing `npm run dev` in the terminal. This will provide a clickable link to open the app in your default browser, or you can navigate to the localhost URL in your browser.
 
