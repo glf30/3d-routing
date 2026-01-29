@@ -33,7 +33,7 @@ To access an individual user use https://jsonplaceholder.typicode.com/users/${id
 
 ---
 
-### 5. 404 Page (`*`)
+### 4. 404 Page (`*`)
 
 * Display a clear “Page Not Found” message
 * This page should render for any URL that does not match an existing route
