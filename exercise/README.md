@@ -1,6 +1,8 @@
 # React Router Assignment
 
-## Pages / Components to Implement
+Utilizing this Users data from this API (https://jsonplaceholder.typicode.com/users), complete the following routes utilizing React Router.
+
+To access an individual user use https://jsonplaceholder.typicode.com/users/${id}
 
 ### 1. Home Page (`/`)
 
@@ -28,17 +30,6 @@
   * Email
   * Company catchphrase
 * Add a **Back** or **Home** button using either a link or programmatic navigation
-
----
-
-### 4. Posts by User Page (`/users/:id/posts`)
-
-* Display data related to the selected user (for example, posts created by that user)
-* Show a list of titles or summaries
-* Add a **Back to User Info** button
-* Include a link to this page from the **User Info Page**
-
-This page should feel like a continuation of the user detail view (detail → related detail), without requiring nested route layouts.
 
 ---
 
