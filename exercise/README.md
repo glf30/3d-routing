@@ -29,7 +29,7 @@ To access an individual user use https://jsonplaceholder.typicode.com/users/${id
   * Name
   * Email
   * Company catchphrase
-* Add a **Back** or **Home** button using either a link or programmatic navigation
+* There should be a way to link back to the UserList page
 
 ---
 
