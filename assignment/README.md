@@ -27,6 +27,7 @@ Display all transactions in a list. Each item should show its key details.
 Include a way for the user to **filter** the list to show
   * Income, Expenses, or all
   * Transactions based on category  
+
 Provide a way for the user to **delete** a transaction.
 
 ---
